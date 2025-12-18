@@ -13,6 +13,13 @@ class OutletBaselineSignal : public BiasSignal {
 public:
     OutletBaselineSignal();
 
+    /**
+     * Load outlet biases from JSON file
+     * @param config_path Path to outlets.json
+     * @return true if loaded successfully, false otherwise
+     */
+    bool load_from_json(const std::string& config_path);
+
     double compute(const NLPContext& ctx,
                   const ArticleInput& article) override;
 
