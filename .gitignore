@@ -1,0 +1,32 @@
+# Build artifacts
+build/
+*.o
+*.a
+*.so
+*.dylib
+
+# Executables
+bias_detector_example
+final_example
+example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# CMake
+cmake_build_debug/
+cmake_build_release/
+CMakeFiles/
+CMakeCache.txt
+
+# Temp
+*.tmp
+.tmp/
