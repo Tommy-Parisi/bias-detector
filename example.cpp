@@ -19,8 +19,8 @@ int main() {
                 "while strengthening environmental regulations. Critics worry about free market concerns, "
                 "but supporters emphasize climate justice and community welfare. The bill represents a "
                 "significant progressive victory for climate action and social equity.",
-        .url = "https://example.com/climate-bill",
-        .domain = "msnbc.com"
+        .url = "https://msnow.com/climate-bill",
+        .domain = "msnow.com"
     };
 
     BiasResult result1 = aggregator.analyze(article1);
@@ -47,7 +47,7 @@ int main() {
                 "The conservative initiative emphasizes traditional business values and entrepreneurial "
                 "freedom while critics worry about regulatory protections being weakened. Business "
                 "growth advocates support the deregulation and market liberty focus of the proposal.",
-        .url = "https://example.com/business-bill",
+        .url = "https://foxnews.com/business-bill",
         .domain = "foxnews.com"
     };
 

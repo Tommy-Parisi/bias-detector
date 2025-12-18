@@ -42,8 +42,9 @@ double PolicyFramingSignal::compute(const NLPContext& ctx,
     double left_ratio = static_cast<double>(left_terms) / total;
     double right_ratio = static_cast<double>(right_terms) / total;
 
-    // Bias score: left_ratio - right_ratio, range [-1, 1]
-    double score = left_ratio - right_ratio;
+    // Bias score: right_ratio - left_ratio, range [-1, 1]
+    // Positive = right-leaning, Negative = left-leaning
+    double score = right_ratio - left_ratio;
     return score;
 }
 

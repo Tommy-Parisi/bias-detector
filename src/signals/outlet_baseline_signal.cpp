@@ -4,17 +4,7 @@
 #include <regex>
 
 OutletBaselineSignal::OutletBaselineSignal() {
-    // Seed with default biases (can be overridden by load_from_json)
-    outlet_scores["foxnews.com"] = 0.7;          // right
-    outlet_scores["msnbc.com"] = -0.6;           // left
-    outlet_scores["cnn.com"] = -0.2;             // slight left
-    outlet_scores["bbc.com"] = -0.05;            // neutral/slight left
-    outlet_scores["apnews.com"] = 0.0;           // neutral
-    outlet_scores["reuters.com"] = 0.0;          // neutral
-    outlet_scores["nytimes.com"] = -0.3;         // left-leaning
-    outlet_scores["wsj.com"] = 0.2;              // slight right
-    outlet_scores["breitbart.com"] = 0.8;        // far right
-    outlet_scores["huffpost.com"] = -0.5;        // left
+    load_from_json("config/outlets.json");
 }
 
 bool OutletBaselineSignal::load_from_json(const std::string& config_path) {
