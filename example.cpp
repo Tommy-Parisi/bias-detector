@@ -93,5 +93,40 @@ int main() {
         std::cout << "  - " << explanation << std::endl;
     }
 
+    // Example 4: Right-leaning article using non-standard terminology
+    std::cout << "\n========== EXAMPLE 4: Conservative News (Non-standard Vocabulary) ==========\n" << std::endl;
+    
+    ArticleInput article4{
+        .title = "Private Sector Expansion Creates Prosperity and Opportunity",
+        .body = "The nation's commerce sector demonstrated impressive gains this quarter as companies "
+                "reported strong profitability and shareholder returns. Entrepreneurs across industries "
+                "expanded operations, hired new talent, and pursued ambitious strategic objectives. "
+                "Economic analysts credit reduced bureaucratic obstacles and streamlined compliance "
+                "procedures for enabling this commercial surge. Small enterprises particularly benefited "
+                "from simplified procedures and decreased administrative burden. Industry leaders praised "
+                "the environment of entrepreneurial autonomy and self-determination in capital allocation. "
+                "Corporations invested heavily in new facilities, infrastructure, and technological advancement. "
+                "Employment opportunities multiplied as firms pursued competitive strategies. Shareholders "
+                "reaped substantial returns on investments while workers secured promising career paths. "
+                "Experts attribute the prosperity boom to reliance on market forces rather than central "
+                "planning or governmental direction. Competition among firms spurred continuous advancement "
+                "and efficiency improvements. The private sector's capacity for self-organization and "
+                "innovation outperformed expectations as enterprises competed vigorously for market share. "
+                "Economic prosperity and opportunity expanded broadly, demonstrating the advantages of "
+                "commercial autonomy and competitive enterprise dynamics.",
+        .url = "https://economytoday.com/prosperity-report",
+        .domain = "businessreport.com"
+    };
+
+    BiasResult result4 = aggregator.analyze(article4);
+
+    std::cout << "Score: " << result4.score << std::endl;
+    std::cout << "Label: " << result4.label << std::endl;
+    std::cout << "Confidence: " << result4.confidence << std::endl;
+    std::cout << "\nExplanations:" << std::endl;
+    for (const auto& explanation : result4.explanations) {
+        std::cout << "  - " << explanation << std::endl;
+    }
+
     return 0;
 }
