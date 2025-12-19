@@ -3,6 +3,7 @@
 #include "../include/signals/entity_sentiment_signal.hpp"
 #include "../include/signals/policy_framing_signal.hpp"
 #include "../include/signals/emotional_direction_signal.hpp"
+#include "../include/signals/semantic_bias_signal.hpp"
 #include <numeric>
 #include <sstream>
 
@@ -12,13 +13,15 @@ BiasAggregator::BiasAggregator() {
     signals.push_back(std::make_unique<EntitySentimentSignal>());
     signals.push_back(std::make_unique<PolicyFramingSignal>());
     signals.push_back(std::make_unique<EmotionalDirectionSignal>());
+    signals.push_back(std::make_unique<SemanticBiasSignal>());
 
     // Set default weights
     weights = {
         {"OutletBaseline", 0.15},
-        {"EntitySentiment", 0.35},
-        {"PolicyFraming", 0.25},
-        {"EmotionalDirection", 0.25}
+        {"EntitySentiment", 0.30},
+        {"PolicyFraming", 0.20},
+        {"EmotionalDirection", 0.15},
+        {"SemanticBias", 0.20}  // New semantic layer
     };
 
     // Normalize weights

@@ -16,15 +16,19 @@ clang++ -std=c++17 -I. -c src/signals/outlet_baseline_signal.cpp -o build/outlet
 clang++ -std=c++17 -I. -c src/signals/entity_sentiment_signal.cpp -o build/entity.o
 clang++ -std=c++17 -I. -c src/signals/policy_framing_signal.cpp -o build/policy.o
 clang++ -std=c++17 -I. -c src/signals/emotional_direction_signal.cpp -o build/emotional.o
+clang++ -std=c++17 -I. -I/opt/homebrew/include -c src/signals/semantic_bias_signal.cpp -o build/semantic.o 2>/dev/null || \
+  clang++ -std=c++17 -I. -c src/signals/semantic_bias_signal.cpp -o build/semantic.o
 
 # Link library
 ar rcs build/libbias_detector.a build/*.o
 
 # Build example
 clang++ -std=c++17 -I. -c example.cpp -o build/example.o
-clang++ -std=c++17 build/example.o build/libbias_detector.a -o build/bias_detector_example
+clang++ -std=c++17 build/example.o build/libbias_detector.a -o build/bias_detector_example 2>/dev/null || \
+  clang++ -std=c++17 build/example.o build/libbias_detector.a -o build/bias_detector_example
 
 echo "✓ Compilation successful"
 echo "✓ Executable: ./build/bias_detector_example"
 echo "✓ Library: ./build/libbias_detector.a"
 echo "✓ Object files: ./build/*.o"
+
