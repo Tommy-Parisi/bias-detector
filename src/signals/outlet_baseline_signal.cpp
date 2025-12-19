@@ -17,20 +17,16 @@ bool OutletBaselineSignal::load_from_json(const std::string& config_path) {
                         std::istreambuf_iterator<char>());
     file.close();
 
-    // Simple JSON parser for {"outlets": {"domain": score, ...}}
-    // Find the "outlets" key
     size_t outlets_pos = content.find("\"outlets\"");
     if (outlets_pos == std::string::npos) {
         return false;
     }
 
-    // Find the opening brace after "outlets"
     size_t open_brace = content.find("{", outlets_pos);
     if (open_brace == std::string::npos) {
         return false;
     }
 
-    // Find matching closing brace
     int brace_count = 1;
     size_t close_brace = open_brace + 1;
     while (close_brace < content.length() && brace_count > 0) {
@@ -42,10 +38,8 @@ bool OutletBaselineSignal::load_from_json(const std::string& config_path) {
         close_brace++;
     }
 
-    // Extract outlets object
     std::string outlets_str = content.substr(open_brace + 1, close_brace - open_brace - 2);
 
-    // Parse key-value pairs: "domain": score
     std::regex pair_regex("\"([^\"]+)\"\\s*:\\s*([+-]?[0-9]*\\.?[0-9]+)");
     std::smatch match;
     std::string::const_iterator search_start(outlets_str.cbegin());
